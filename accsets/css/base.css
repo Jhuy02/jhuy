@@ -47,6 +47,20 @@
     .header-search {
         height: 300px;
     }
+    
+    .content {
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.header-backround1 {
+    height: 200px;
+}
+
+/* .header-backround1 img {
+    width: 100%;
+    height: 100%;
+} */
 
     .newmenu {
         display: none;
