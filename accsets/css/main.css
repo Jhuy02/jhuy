@@ -14,6 +14,19 @@
     -webkit-font-smoothing: antialiased;
 } */
 
+#body {
+    overflow-y: scroll;
+}
+
+#body::-webkit-scrollbar {
+    display: none;
+}
+
+#body {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+
 .nooverflow {
     overflow: hidden;
 }
@@ -556,7 +569,7 @@
 .box-column {
     display: flex;
     flex-direction: column;
-    width: calc(calc(100% / var(--column)) - var(--margin-right));
+    /* width: calc(calc(100% / var(--column)) - var(--margin-right)); */
     margin-right: var(--margin-right);
 }
 
@@ -967,9 +980,13 @@
     right: 0;
     bottom: 0;
     left: 0;
-    overflow: auto;
+    overflow-y: scroll;
     background-color: rgba(0,0,0,.9);
     z-index: 101;
+}
+
+.modal-music::-webkit-scrollbar {
+    display: none;
 }
 
 .music {
@@ -988,8 +1005,8 @@
 
 .music-play {
     position: fixed;
+    z-index: 111;
     width: 1000px;
-    height: 400px;
     text-align: center;
     top: 0;
     background: linear-gradient(-45deg, #ee7752, #e73c7e, #816b2f, #14997a);
@@ -999,11 +1016,16 @@
     background-position: 0% 50%;
 }
 
-
+.close-music {
+    display: none;
+}
 
 .music-list-item {
     margin-top: 10px;
     margin-bottom: 20px;
+    background-color: rgb(55, 7, 93);
+    padding: 0 200px 30px 200px;
+    border-radius: 20px;
 }
 
 .activelistmusic {
@@ -1069,17 +1091,6 @@
     border-radius: 10px;
 }
 
-.music-zoom i {
-    padding: 10px;
-    font-size: 22px;
-}
-
-.music-zoom:hover {
-    opacity: .8;
-    background-color: #000;
-    color: #fff;
-}
-
 .list-item-music:hover {
     background-color: #91848445;
     border-radius: 25px;
@@ -1104,11 +1115,24 @@
     margin-right: 20px;
 }
 
-.list-item-music div {
+.name-avt-listmusic {
     display: flex;
-    margin: 30px 50px;
+    padding: 50px;
     height: 50px;
     align-items: center;
+    width: 90%;
+}
+
+.durationn {
+    display: flex;
+    margin-right: 50px;
+    align-items: center;
+    width: 10%;
+    justify-content: flex-end;
+}
+
+.durationn i {
+    padding: 10px;
 }
 
 .list-item-music {
@@ -1118,9 +1142,9 @@
 }
 
 .music-list {
-    width: 70%;
-    margin: 0 auto;
-    margin-top: 400px;
+    position: relative;
+    width: 100%;
+    top: 350px;
 }
 
 /* messbox */
@@ -1339,3 +1363,6 @@
     font-size: 70px;
 }
 
+.advertisement-icon ul {
+    display: none;
+}
