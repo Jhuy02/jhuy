@@ -218,7 +218,7 @@ const app = {
         const htmls = this.songs.map((song, index) => {
             return `
             <div class="list-item-music ${index === this.currentIndex ? "activelistmusic" : ""}" data-index="${index}">
-                <div>
+                <div class="name-avt-listmusic">
                     <img src="${song.image}" alt="" 
                     class="item-music-avt">
                     <ul>
@@ -391,9 +391,14 @@ const app = {
 }
 app.start()
 
+const closeMusicMB = $$(".close-music") 
 const topicMusic = $$(".topic-music")
 const modalMusic = $$(".modal-music")
 const musicSpeed = $$(".music-speed")
+
+closeMusicMB.addEventListener("click", function() {
+    modalMusic.style.display = "none";
+})
 musicSpeed.addEventListener("click", openModalmusic)
 topicMusic.addEventListener("click", openModalmusic)
 function openModalmusic() {
@@ -411,11 +416,11 @@ document.body.addEventListener("click", function(e) {
 /*  */
 const adclose = document.querySelector(".advertisement-close")
 const advertisement = document.querySelector(".advertisement")
-const advertisementicon = document.querySelector(".advertisement-icon")
+const advertisementIcon = document.querySelector(".advertisement-icon")
 
 adclose.addEventListener("click", function() {
     advertisement.style.display = "none";
 })
-advertisementicon.addEventListener("click", function() {
+advertisementIcon.addEventListener("click", function() {
     advertisement.style.display = "block";
 })
