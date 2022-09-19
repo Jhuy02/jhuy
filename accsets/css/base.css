@@ -163,6 +163,14 @@
     padding: 0;
 }
 
+.notification_content_mobile {
+    display: block;
+}
+
+.notification_content_pc {
+    display: none;
+}
+
 }
 
 /* tablet: width >= 740px and width < 1240px */
