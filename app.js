@@ -1,3 +1,4 @@
+const $$ = document.querySelector.bind(document);
 // scroll header navbar
 window.addEventListener("scroll", function(){
     var header = document.querySelector(".header-navbar");
@@ -23,12 +24,16 @@ $(document).ready(function(){
     });
 });
 
-// modal livebox
+// const test = document.querySelectorAll(".box-column")
+// console.log(test.querySelector(""))
+
+// hover img (box-img)
 const imgs = document.querySelectorAll('.item-image')
 const modalBody = document.querySelector('.modal-body')
 const bodyWrap = document.querySelector('.body-wrap')
 const wrspClose = document.querySelector('.wrap-close')
 const body = document.querySelector('body')
+const boxitems = document.querySelectorAll(".box-item")
 
 imgs.forEach((item) => item.addEventListener("click", showhtml));
 function showhtml(event) {
@@ -41,7 +46,7 @@ function showhtml(event) {
                 <div class="body-content" id="livebox-image">
                     <div class="content-information">
                         <div class="information-author">
-                            <img src="https://images.pexels.com/users/avatars/230380428/till-daling-405.jpeg?auto=compress&fit=crop&h=50&w=50&dpr=1" 
+                            <img src="${image}" 
                             alt="" class="img-avtauthor">
                             <ul>
                                 Till Daling
@@ -79,6 +84,54 @@ function showhtml(event) {
     body.classList.add('nooverflow')
 }
 
+indexInformation = true
+for (const img of imgs) {
+    img.addEventListener("mouseover", function() {
+        if (indexInformation) {
+            console.log("hhh")
+            var template = `
+            <div class="information">
+                <div class="item-information">
+                    <ul class="item-btn">
+                        <li>
+                            <button class="btn">
+                                <i class="fa-solid fa-bookmark"></i>
+                            </button>
+                        </li>
+                        <li>
+                            <button class="btn">
+                                <i class="fa-solid fa-heart"></i>
+                            </button>
+                        </li>
+                    </ul>
+                </div>
+                <a href="#" class="item-download">
+                    <i class="fa-solid fa-download"></i>
+                </a>
+                <a href="#" class="item-avt">
+                    <img src="https://i.pinimg.com/236x/0b/3d/f1/0b3df19a63dfe264cfd984f6864a77b3.jpg" 
+                    alt="" class="avt-img">
+                    <p class="avt-name">Trương Quang Huy</p>
+                </a>
+            </div>`
+            for (const boxitem of boxitems) {
+                boxitem.insertAdjacentHTML("beforeend", template)
+            }
+            indexInformation = false;
+        } else {
+            console.log("het")
+        }
+    });
+    
+}
+// for (const img of imgs) {
+//     img.addEventListener("mouseout", function() {
+//         const information = document.querySelector(".information")
+//         information.remove();
+//         indexInformation = true
+//     });
+// }
+
 let index = 0;
 document.body.addEventListener("click", function(e) {
     const contentimg = document.querySelector('.img-js');
@@ -108,8 +161,6 @@ document.body.addEventListener("click", function(e) {
 })
 
 // music
-
-const $$ = document.querySelector.bind(document);
 
 const nameSong = $$(".music-name");
 const avtSong = $$(".music-avt");
@@ -391,6 +442,7 @@ const app = {
 }
 app.start()
 
+
 const closeMusicMB = $$(".close-music") 
 const topicMusic = $$(".topic-music")
 const modalMusic = $$(".modal-music")
@@ -424,3 +476,28 @@ adclose.addEventListener("click", function() {
 advertisementIcon.addEventListener("click", function() {
     advertisement.style.display = "block";
 })
+
+const notificationClosePC = document.querySelector(".notification_close_pc")
+const notification = document.querySelector(".notification")
+const notificationcloseMB = document.querySelector(".notification_close_mb" )
+
+notificationcloseMB.addEventListener("click", function() {
+    notification.style.display = "none";
+})
+notificationClosePC.addEventListener("click", function() {
+    notification.style.display = "none";
+})
+
+const likeds = document.querySelectorAll(".btn")
+var indexliked = true
+for (const liked of likeds) {
+    liked.addEventListener("click", function() {
+        if (indexliked) {
+            liked.style.color = "#ed006d";
+            indexliked = false
+        } else {
+            liked.style.color = "#000";
+            indexliked = true
+        }
+    })
+}
